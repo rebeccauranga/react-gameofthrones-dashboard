@@ -1,26 +1,51 @@
+
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import About from './About';
+import Characters from './Characters';
+import Resources from './Resources';
+import CharacterDetails from './CharacterDetails';
+import sigils from './sigils.png'
+
+import {
+  Link,
+  Route
+} from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="NavBar">
+      <Link to="/">
+          Home
+        </Link> {" "}
+        <Link to="/about">
+          About
+        </Link> {" "}
+        <Link to="/characters">
+          Characters
+        </Link> {" "}
+        <Link to="/resources">
+          Resources
+        </Link>
+      </div>
+      <h1 className="glow">GAME OF THRONES</h1>
+      <img src={sigils} alt="House Sigils" />
+      
+
+      <Route path='/about' component={About} /> 
+      <Route path='/characters' component={Characters} />
+      <Route path='/resources' component={Resources} />
+      <Route path='/gameofthrones' component={CharacterDetails} />
+      <Route path='/gameofthrones/:id' component={Characters} />
+  
+
+
+    
     </div>
   );
 }
 
 export default App;
+
+
